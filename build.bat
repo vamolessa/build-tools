@@ -26,7 +26,7 @@ popd
 
 git clone https://git.sr.ht/~lessa/copycat
 pushd copycat
-%CLANG% -o copycat.exe -I vendor -luser32 -lgdi32 main.c
+%CLANG% -o copycat.exe -I vendor -luser32 -lgdi32 -O2 main.c
 popd
 
 call git clone https://git.sr.ht/~lessa/peppito
