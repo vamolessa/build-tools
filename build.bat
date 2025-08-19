@@ -1,6 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 
+cd %~dp0
+
 where /q git.exe || (
 	echo ERROR: "git.exe" not found
 	exit /b 1
