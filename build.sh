@@ -6,7 +6,7 @@ OS=$1
 
 git clone https://git.sr.ht/~lessa/absolute-unit
 pushd absolute-unit
-call build.bat || exit 1
+./build.sh || exit 1
 popd
 
 git clone --recursive https://git.sr.ht/~lessa/peppito
