@@ -19,6 +19,9 @@ jobs:
 
   build-windows:
     runs-on: windows-2022
+    needs: info
+    env:
+      BUILD_DATE: ${{ needs.info.outputs.BUILD_DATE }}
     steps:
 
       - name: Checkout
@@ -32,13 +35,16 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: tools-win
-          path: tools-win.zip
+          name: tools-win-${{ needs.info.outputs.BUILD_DATE }}
+          path: tools-win-${{ needs.info.outputs.BUILD_DATE }}.zip
           if-no-files-found: error
           compression-level: 0
 
   build-mac:
     runs-on: macos-latest
+    needs: info
+    env:
+      BUILD_DATE: ${{ needs.info.outputs.BUILD_DATE }}
     steps:
 
       - name: Update XCode
@@ -57,14 +63,14 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: tools-mac
-          path: tools-mac.zip
+          name: tools-mac-${{ needs.info.outputs.BUILD_DATE }}
+          path: tools-mac-${{ needs.info.outputs.BUILD_DATE }}.zip
           if-no-files-found: error
           compression-level: 0
 
   release:
     runs-on: ubuntu-24.04
-    needs: [build-windows, build-mac]
+    needs: [info, build-windows, build-mac]
     permissions:
       contents: write
     env:
@@ -80,7 +86,7 @@ jobs:
       - name: Get Artifacts From Build Steps
         uses: actions/download-artifact@v4
         with:
-          pattern: tools-*
+          pattern: tools-*-${{ needs.info.outputs.BUILD_DATE }}
           merge-multiple: true
 
       - name: Upload Artifacts to GitHub Release

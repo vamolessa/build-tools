@@ -22,4 +22,4 @@ cp absolute-unit/au tools-$OS
 cp peppito/build/peppito tools-$OS
 
 rm -f tools-$OS.zip
-zip -9 -r tools-$OS.zip tools-$OS || echo "could not zip artifacts"
+zip -9 -r tools-$OS-$BUILD_DATE.zip tools-$OS || echo "could not zip artifacts"

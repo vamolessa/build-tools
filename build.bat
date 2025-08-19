@@ -38,5 +38,5 @@ copy /y absolute-unit\au.exe tools-win
 copy /y peppito\build\peppito.exe tools-win
 
 if "%GITHUB_WORKFLOW%" neq "" (
-	%SZIP% a -y -mx=9 tools-win.zip tools-win || exit /b 1
+	%SZIP% a -y -mx=9 tools-win-%BUILD_DATE%.zip tools-win || exit /b 1
 )
