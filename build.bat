@@ -21,6 +21,7 @@ if exist "%ProgramFiles%\7-Zip\7z.exe" (
 rem ===========================================================================
 
 git clone https://git.sr.ht/~lessa/absolute-unit || exit /b 1
+dir .
 pushd absolute-unit
 call build.bat || exit /b 1
 popd
