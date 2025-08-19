@@ -25,8 +25,9 @@ pushd absolute-unit
 call build.bat || exit /b 1
 popd
 
-git clone --recursive https://git.sr.ht/~lessa/peppito || exit /b 1
+git clone https://git.sr.ht/~lessa/peppito || exit /b 1
 pushd peppito
+git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 ../absolute-unit/au --optimize || exit /b 1
 popd
 

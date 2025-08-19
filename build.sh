@@ -9,8 +9,9 @@ pushd absolute-unit
 ./build.sh || exit 1
 popd
 
-git clone --recursive https://git.sr.ht/~lessa/peppito
+git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
+git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 ../absolute-unit/au --optimize || exit 1
 popd
 
