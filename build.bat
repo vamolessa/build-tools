@@ -20,6 +20,7 @@ rem ===========================================================================
 
 git clone https://git.sr.ht/~lessa/absolute-unit || exit /b 1
 dir .
+dir absolute-unit
 cd absolute-unit
 call build.bat || exit /b 1
 cd ..
@@ -27,6 +28,7 @@ cd ..
 git clone https://git.sr.ht/~lessa/peppito || exit /b 1
 cd peppito
 git submodule set-url foundation https://git.sr.ht/~lessa/foundation
+git pull
 git submodule update
 ../absolute-unit/au --optimize || exit /b 1
 cd ..
