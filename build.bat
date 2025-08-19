@@ -18,13 +18,12 @@ if exist "%ProgramFiles%\7-Zip\7z.exe" (
 
 rem ===========================================================================
 
-echo "BBBBBB"
-which clang
-echo "BBBBBB"
-
 call git clone https://git.sr.ht/~lessa/absolute-unit
 cd absolute-unit
+dir
+echo AAAAAAAAAAA
 call build.bat || exit /b 1
+echo BBBBBBBBBBB
 cd ..
 
 call git clone https://git.sr.ht/~lessa/peppito
