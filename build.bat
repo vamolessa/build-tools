@@ -1,6 +1,8 @@
 @echo off
 setlocal enabledelayedexpansion
 
+cd %~dp0
+
 where /q git.exe || (
 	echo ERROR: "git.exe" not found
 	exit /b 1
@@ -20,15 +22,19 @@ rem ===========================================================================
 
 echo "AAAAAAAAA %CD% BBBBBB"
 
-git.exe clone https://git.sr.ht/~lessa/absolute-unit
+echo before clone aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+call git clone https://git.sr.ht/~lessa/absolute-unit
+echo after clone aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 cd absolute-unit
+echo after cd bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
 call absolute-unit\build.bat || exit /b 1
 cd ..
 
-git.exe clone https://git.sr.ht/~lessa/peppito
+call git clone https://git.sr.ht/~lessa/peppito
 cd peppito
-git.exe submodule set-url foundation https://git.sr.ht/~lessa/foundation
-git.exe submodule update --init --recursive
+call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
+call git submodule update --init --recursive
 ..\absolute-unit\au --optimize || exit /b 1
 cd ..
 
