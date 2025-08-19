@@ -18,23 +18,23 @@ if exist "%ProgramFiles%\7-Zip\7z.exe" (
 
 rem ===========================================================================
 
-call git clone https://git.sr.ht/~lessa/absolute-unit au || exit /b 1
-cd au
-call build.bat || exit /b 1
+call git clone https://git.sr.ht/~lessa/absolute-unit || exit /b 1
+rem cd absolute-unit
+call absolute-unit\build.bat || exit /b 1
 cd ..
 
 call git clone https://git.sr.ht/~lessa/peppito || exit /b 1
 cd peppito
 git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 git submodule update --init --recursive
-..\au\au --optimize || exit /b 1
+..\absolute-unit\au --optimize || exit /b 1
 cd ..
 
 rem ===========================================================================
 
 mkdir tools-win
 
-copy /y au\au.exe tools-win
+copy /y absolute-unit\au.exe tools-win
 copy /y peppito\build\peppito.exe tools-win
 
 if "%GITHUB_WORKFLOW%" neq "" (
