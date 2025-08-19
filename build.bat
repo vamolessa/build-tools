@@ -19,11 +19,7 @@ if exist "%ProgramFiles%\7-Zip\7z.exe" (
 rem ===========================================================================
 
 call git clone https://git.sr.ht/~lessa/absolute-unit
-cd absolute-unit
-dir
-echo AAAAAAAAAAA
-call build.bat || exit /b 1
-echo BBBBBBBBBBB
+clang au.c -o au.exe
 cd ..
 
 call git clone https://git.sr.ht/~lessa/peppito
