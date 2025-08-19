@@ -2,6 +2,7 @@
 setlocal enabledelayedexpansion
 
 if not defined CLANG ( set CLANG=clang )
+if not defined BUILD_DATE ( set BUILD_DATE=latest )
 
 where /q git.exe || (
 	echo ERROR: "git.exe" not found
