@@ -19,6 +19,9 @@ if not defined SZIP (
 
 rem ===========================================================================
 
+mkdir tools
+pushd tools
+
 call git clone https://git.sr.ht/~lessa/absolute-unit
 pushd absolute-unit
 %CC% au.c -o au.exe
@@ -36,12 +39,14 @@ call git submodule update --init --recursive
 ..\absolute-unit\au --release || exit /b 1
 popd
 
+popd
+
 rem ===========================================================================
 
 mkdir tools-win
 
-copy /y absolute-unit\au.exe tools-win
-copy /y copycat\copycat.exe tools-win
-copy /y peppito\build\peppito.exe tools-win
+copy /y tools\absolute-unit\au.exe tools-win
+copy /y tools\copycat\copycat.exe tools-win
+copy /y tools\peppito\build\peppito.exe tools-win
 
 %SZIP% a -y -mx=9 tools-win-%BUILD_DATE%.zip tools-win || exit /b 1
