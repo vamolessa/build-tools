@@ -18,25 +18,12 @@ if exist "%ProgramFiles%\7-Zip\7z.exe" (
 
 rem ===========================================================================
 
-if not exist au (
-	mkdir au
-	pushd au
-	call git init . || exit /b 1
-	call git remote add origin https://git.sr.ht/~lessa/absolute-unit || exit /b 1
-	popd
-)
-
-pushd au
-call git pull || exit /b 1
+call git clone https://git.sr.ht/~lessa/absolute-unit au || exit /b 1
+cd au
 call build.bat || exit /b 1
-popd
+cd ..
 
-rem git clone https://git.sr.ht/~lessa/absolute-unit au || exit /b 1
-rem cd au
-rem call build.bat || exit /b 1
-rem cd ..
-
-git clone https://git.sr.ht/~lessa/peppito || exit /b 1
+call git clone https://git.sr.ht/~lessa/peppito || exit /b 1
 cd peppito
 git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 git submodule update --init --recursive
