@@ -1,17 +1,17 @@
 @echo off
 setlocal enabledelayedexpansion
 
-if not defined CC ( set CC=clang )
-if not defined BUILD_DATE ( set BUILD_DATE=latest )
+if not defined CC (set CC=clang)
+if not defined BUILD_DATE (set BUILD_DATE=latest)
 
 where /q git.exe || (
 	echo ERROR: "git.exe" not found
 	exit /b 1
 )
 
-if not defined SZIP ( where /q 7z.exe && ( set SZIP=7z.exe ) )
-if not defined SZIP ( if exist "%ProgramFiles%\7-Zip\7z.exe" ( set SZIP="%ProgramFiles%\7-Zip\7z.exe" ) )
-if not defined SZIP ( where /q 7za.exe && ( set SZIP=7za.exe ) )
+if not defined SZIP ( where /q 7z.exe && (set SZIP=7z.exe) )
+if not defined SZIP ( if exist "%ProgramFiles%\7-Zip\7z.exe" (set SZIP="%ProgramFiles%\7-Zip\7z.exe") )
+if not defined SZIP ( where /q 7za.exe && (set SZIP=7za.exe) )
 if not defined SZIP (
 	echo ERROR: 7-Zip installation or "7za.exe" not found
 	exit /b 1
