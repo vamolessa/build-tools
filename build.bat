@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-if not defined CLANG ( set CLANG=clang )
+if not defined CC ( set CC=clang )
 if not defined BUILD_DATE ( set BUILD_DATE=latest )
 
 where /q git.exe || (
@@ -21,19 +21,19 @@ rem ===========================================================================
 
 call git clone https://git.sr.ht/~lessa/absolute-unit
 pushd absolute-unit
-%CLANG% au.c -o au.exe
+%CC% au.c -o au.exe
 popd
 
 git clone https://git.sr.ht/~lessa/copycat
 pushd copycat
-%CLANG% -o copycat.exe -I vendor -luser32 -lgdi32 -O2 main.c
+%CC% -o copycat.exe -I vendor -luser32 -lgdi32 -O2 main.c
 popd
 
 call git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule update --init --recursive
-..\absolute-unit\au -c %CLANG% --release || exit /b 1
+..\absolute-unit\au --release || exit /b 1
 popd
 
 rem ===========================================================================
