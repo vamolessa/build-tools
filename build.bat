@@ -18,15 +18,17 @@ if exist "%ProgramFiles%\7-Zip\7z.exe" (
 
 rem ===========================================================================
 
-call git clone https://git.sr.ht/~lessa/absolute-unit || exit /b 1
-rem cd absolute-unit
+echo "AAAAAAAAA %CD% BBBBBB"
+
+git.exe clone https://git.sr.ht/~lessa/absolute-unit
+cd absolute-unit
 call absolute-unit\build.bat || exit /b 1
 cd ..
 
-call git clone https://git.sr.ht/~lessa/peppito || exit /b 1
+git.exe clone https://git.sr.ht/~lessa/peppito
 cd peppito
-git submodule set-url foundation https://git.sr.ht/~lessa/foundation
-git submodule update --init --recursive
+git.exe submodule set-url foundation https://git.sr.ht/~lessa/foundation
+git.exe submodule update --init --recursive
 ..\absolute-unit\au --optimize || exit /b 1
 cd ..
 
