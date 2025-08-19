@@ -8,14 +8,12 @@ where /q git.exe || (
 	exit /b 1
 )
 
-if exist "%ProgramFiles%\7-Zip\7z.exe" (
-	set SZIP="%ProgramFiles%\7-Zip\7z.exe"
-) else (
-	where /q 7za.exe || (
-		echo ERROR: 7-Zip installation or "7za.exe" not found
-		exit /b 1
-	)
-	set SZIP=7za.exe
+if not defined SZIP ( where /q 7z.exe && ( set SZIP=7z.exe ) )
+if not defined SZIP ( if exist "%ProgramFiles%\7-Zip\7z.exe" ( set SZIP="%ProgramFiles%\7-Zip\7z.exe" ) )
+if not defined SZIP ( where /q 7za.exe && ( set SZIP=7za.exe ) )
+if not defined SZIP (
+	echo ERROR: 7-Zip installation or "7za.exe" not found
+	exit /b 1
 )
 
 rem ===========================================================================
