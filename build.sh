@@ -10,6 +10,7 @@ popd
 git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
 git submodule set-url foundation https://git.sr.ht/~lessa/foundation
+git submodule sync --recursive
 ../absolute-unit/au --optimize || exit 1
 popd
 
