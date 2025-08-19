@@ -3,16 +3,16 @@ OS=$1
 # =============================================================================
 
 git clone https://git.sr.ht/~lessa/absolute-unit
-pushd absolute-unit
+cd absolute-unit
 ./build.sh || exit 1
-popd
+cd ..
 
 git clone https://git.sr.ht/~lessa/peppito
-pushd peppito
+cd peppito
 git submodule set-url foundation https://git.sr.ht/~lessa/foundation
-git submodule sync --recursive
+git submodule update
 ../absolute-unit/au --optimize || exit 1
-popd
+cd ..
 
 # =============================================================================
 
