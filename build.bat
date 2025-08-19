@@ -1,8 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
 
-cd %~dp0
-
 where /q git.exe || (
 	echo ERROR: "git.exe" not found
 	exit /b 1
@@ -20,15 +18,13 @@ if exist "%ProgramFiles%\7-Zip\7z.exe" (
 
 rem ===========================================================================
 
-echo "AAAAAAAAA %CD% BBBBBB"
+echo "BBBBBB"
+which clang
+echo "BBBBBB"
 
-echo before clone aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 call git clone https://git.sr.ht/~lessa/absolute-unit
-echo after clone aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 cd absolute-unit
-echo after cd bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-
-call absolute-unit\build.bat || exit /b 1
+call build.bat || exit /b 1
 cd ..
 
 call git clone https://git.sr.ht/~lessa/peppito
