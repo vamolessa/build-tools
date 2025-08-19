@@ -11,7 +11,7 @@ git clone https://git.sr.ht/~lessa/peppito
 cd peppito
 git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 git submodule update --init --recursive
-../absolute-unit/au --optimize || exit 1
+../absolute-unit/au -c clang --optimize || exit 1
 cd ..
 
 # =============================================================================
