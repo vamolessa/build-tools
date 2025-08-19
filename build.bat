@@ -19,6 +19,7 @@ if not defined SZIP (
 
 rem ===========================================================================
 
+rmdir /s /q tools
 mkdir tools
 pushd tools
 
