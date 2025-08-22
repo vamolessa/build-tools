@@ -24,12 +24,12 @@ pushd tools
 
 call git clone https://git.sr.ht/~lessa/absolute-unit
 pushd absolute-unit
-build
+call build || exit /b 1
 popd
 
 git clone https://git.sr.ht/~lessa/copycat
 pushd copycat
-build
+call build || exit /b 1
 popd
 
 call git clone https://git.sr.ht/~lessa/peppito
