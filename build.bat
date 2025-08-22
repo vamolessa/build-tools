@@ -1,7 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
 
-if not defined CC (set CC=clang)
 if not defined BUILD_DATE (set BUILD_DATE=latest)
 
 where /q git.exe || (
@@ -25,12 +24,12 @@ pushd tools
 
 call git clone https://git.sr.ht/~lessa/absolute-unit
 pushd absolute-unit
-%CC% au.c -o au.exe
+build
 popd
 
 git clone https://git.sr.ht/~lessa/copycat
 pushd copycat
-%CC% -o copycat.exe -I vendor -luser32 -lgdi32 -O2 main.c
+build
 popd
 
 call git clone https://git.sr.ht/~lessa/peppito
