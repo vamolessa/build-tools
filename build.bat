@@ -22,6 +22,7 @@ rmdir /s /q tools 2>nul
 mkdir tools
 pushd tools
 
+echo BEFORE COPYCAT
 git clone https://git.sr.ht/~lessa/copycat
 echo AFTER CLONE
 pushd copycat
