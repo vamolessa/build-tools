@@ -11,6 +11,7 @@ pushd peppito
 git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 git submodule set-url absolute-unit https://git.sr.ht/~lessa/absolute-unit
 git submodule update --init --recursive
+chmod a+x build.sh
 ./build.sh -c clang --release || exit 1
 popd
 
