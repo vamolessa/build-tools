@@ -45,3 +45,7 @@ copy /y tools\copycat\build\copycat.exe tools-win
 copy /y tools\peppito\build\peppito.exe tools-win
 
 %SZIP% a -y -mx=9 tools-win-%BUILD_DATE%.zip tools-win || exit /b 1
+
+rem ===========================================================================
+
+echo FINISHED!
