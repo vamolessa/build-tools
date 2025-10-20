@@ -23,9 +23,14 @@ mkdir tools
 pushd tools
 
 git clone https://git.sr.ht/~lessa/copycat
+echo AFTER CLONE
 pushd copycat
-call build || exit /b 1
+echo AFTER PUSHD
+call build.bat || exit /b 1
+echo AFTER COPYCAT BUILD.BAT
 popd
+
+echo BEFORE PEPPITO
 
 call git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
