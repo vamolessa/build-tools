@@ -31,7 +31,7 @@ call git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule update --init --recursive
-call build --release || exit /b 1
+call build -c clang --release || exit /b 1
 popd
 
 popd
