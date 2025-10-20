@@ -22,23 +22,17 @@ rmdir /s /q tools 2>nul
 mkdir tools
 pushd tools
 
-echo BEFORE COPYCAT
 git clone https://git.sr.ht/~lessa/copycat
-echo AFTER CLONE
 pushd copycat
-echo AFTER PUSHD
 call build.bat || exit /b 1
-echo AFTER COPYCAT BUILD.BAT
 popd
-
-echo BEFORE PEPPITO
 
 call git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule set-url absolute-unit https://git.sr.ht/~lessa/absolute-unit
 call git submodule update --init --recursive
-call build -c clang --release || exit /b 1
+call build.bat -c clang --release || exit /b 1
 popd
 
 popd
