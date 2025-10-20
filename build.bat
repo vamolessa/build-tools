@@ -22,11 +22,6 @@ rmdir /s /q tools 2>nul
 mkdir tools
 pushd tools
 
-call git clone https://git.sr.ht/~lessa/absolute-unit
-pushd absolute-unit
-call build || exit /b 1
-popd
-
 git clone https://git.sr.ht/~lessa/copycat
 pushd copycat
 call build || exit /b 1
@@ -36,7 +31,7 @@ call git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule update --init --recursive
-..\absolute-unit\au --release || exit /b 1
+call build --release || exit /b 1
 popd
 
 popd
@@ -45,7 +40,6 @@ rem ===========================================================================
 
 mkdir tools-win
 
-copy /y tools\absolute-unit\au.exe tools-win
 copy /y tools\copycat\build\copycat.exe tools-win
 copy /y tools\peppito\build\peppito.exe tools-win
 
