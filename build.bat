@@ -32,7 +32,7 @@ pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule set-url absolute-unit https://git.sr.ht/~lessa/absolute-unit
 call git submodule update --init --recursive
-call build.bat -c clang --release || exit /b 1
+call build.bat --release || exit /b 1
 popd
 
 popd
