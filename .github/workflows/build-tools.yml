@@ -1,5 +1,5 @@
 
-name: build-dawn
+name: build-tools
 
 on:
   workflow_dispatch:
