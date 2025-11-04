@@ -1,12 +1,12 @@
 OS=$1
 
-if [ -z %OS ]; then
+if [ -z $OS ]; then
 	OS=unix
 fi
 
 # =============================================================================
 
-rm -f tools
+rm -rf tools
 mkdir tools
 pushd tools
 
