@@ -4,6 +4,10 @@ if [ -z $OS ]; then
 	OS=unix
 fi
 
+if [ -z $BUILD_DATE ]; then
+	BUILD_DATE=latest
+fi
+
 # =============================================================================
 
 rm -rf tools
@@ -23,6 +27,7 @@ popd
 
 # =============================================================================
 
+rm -rf tools-$OS
 mkdir tools-$OS
 
 cp tools/peppito/build/peppito tools-$OS
