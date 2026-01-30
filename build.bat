@@ -48,4 +48,13 @@ copy /y tools\peppito\build\peppito.exe tools-win
 
 rem ===========================================================================
 
+where /q install_bin && (
+	pushd tools-win
+	for %%f in (*) do call install_bin %%f
+	popd
+	echo tools installed!
+)
+
+rem ===========================================================================
+
 echo FINISHED!
