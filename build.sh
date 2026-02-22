@@ -23,6 +23,15 @@ chmod a+x build.sh
 ./build.sh --release || exit 1
 popd
 
+git clone https://git.sr.ht/~lessa/lsp
+pushd lsp
+git submodule set-url foundation https://git.sr.ht/~lessa/foundation
+git submodule set-url absolute-unit https://git.sr.ht/~lessa/absolute-unit
+git submodule update --init --recursive
+chmod a+x build.sh
+./build.sh --release || exit 1
+popd
+
 popd
 
 # =============================================================================
@@ -31,6 +40,7 @@ rm -rf tools-$OS
 mkdir tools-$OS
 
 cp tools/peppito/build/peppito tools-$OS
+cp tools/lsp/build/lsp tools-$OS
 
 rm -f tools-$OS.zip
 zip -9 -r tools-$OS-$BUILD_DATE.zip tools-$OS || echo "could not zip artifacts"
