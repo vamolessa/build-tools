@@ -70,4 +70,4 @@ where /q install_bin && (
 
 rem ===========================================================================
 
-echo FINISHED!
+echo FINISHED! %errorlevel%
