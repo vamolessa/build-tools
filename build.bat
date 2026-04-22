@@ -57,7 +57,7 @@ rem copy /y tools\lsp\build\lsp.exe tools-win
 
 rem ===========================================================================
 
-where /q install_bin && (
+if not defined NO_INSTALL where /q install_bin && (
 	pushd tools-win
 	for %%f in (*) do call install_bin %%f
 	popd
@@ -66,4 +66,4 @@ where /q install_bin && (
 
 rem ===========================================================================
 
-echo FINISHED!
+echo FINISHED! %errorlevel%
