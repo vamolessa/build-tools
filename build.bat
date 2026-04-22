@@ -57,13 +57,17 @@ rem copy /y tools\lsp\build\lsp.exe tools-win
 
 rem ===========================================================================
 
-if not defined NO_INSTALL where /q install_bin && (
+where /q install_bin && (
 	pushd tools-win
 	for %%f in (*) do call install_bin %%f
 	popd
 	echo tools installed!
+) || (
+	echo install_bin not found: skipping install step
+	rem reset errorlevel
+	call (exit /b 0)
 )
 
 rem ===========================================================================
 
-echo FINISHED! %errorlevel%
+echo FINISHED!
