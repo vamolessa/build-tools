@@ -57,7 +57,7 @@ rem copy /y tools\lsp\build\lsp.exe tools-win
 
 rem ===========================================================================
 
-where /q install_binasljdh && (
+where /q install_bin && (
 	pushd tools-win
 	for %%f in (*) do call install_bin %%f
 	popd
