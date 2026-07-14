@@ -14,13 +14,20 @@ rm -rf tools
 mkdir tools
 pushd tools
 
+git clone https://git.sr.ht/~lessa/absolute-unit
+pushd absolute-unit
+chmod a+x bootstrap.sh
+./bootstrap.sh || exit 1
+PATH=$PWD/build:$PATH
+popd
+
 git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
 git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 git submodule set-url absolute-unit https://git.sr.ht/~lessa/absolute-unit
 git submodule update --init --recursive
-chmod a+x build.sh
-./build.sh --release || exit 1
+chmod a+x build_peppito.sh
+./build_peppito.sh --release || exit 1
 popd
 
 #git clone https://git.sr.ht/~lessa/lsp
@@ -39,6 +46,7 @@ popd
 rm -rf tools-$OS
 mkdir tools-$OS
 
+cp tools/absolute-unit/build/au tools-$OS
 cp tools/peppito/build/peppito tools-$OS
 #cp tools/lsp/build/lsp tools-$OS
 

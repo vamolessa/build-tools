@@ -27,12 +27,18 @@ pushd copycat
 call build.bat || exit /b 1
 popd
 
+call git clone https://git.sr.ht/~lessa/absolute-unit
+pushd absolute-unit
+call bootstrap.bat || exit /b 1
+set PATH=%CD%\build;%PATH%
+popd
+
 call git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule set-url absolute-unit https://git.sr.ht/~lessa/absolute-unit
 call git submodule update --init --recursive
-call build.bat --release || exit /b 1
+call sh build_peppito.sh --release || exit /b 1
 popd
 
 rem call git clone https://git.sr.ht/~lessa/lsp
@@ -50,6 +56,7 @@ rem ===========================================================================
 mkdir tools-win
 
 copy /y tools\copycat\build\copycat.exe tools-win
+copy /y tools\absolute-unit\au.exe tools-win
 copy /y tools\peppito\build\peppito.exe tools-win
 rem copy /y tools\lsp\build\lsp.exe tools-win
 
