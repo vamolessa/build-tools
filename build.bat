@@ -22,15 +22,15 @@ rmdir /s /q tools 2>nul
 mkdir tools
 pushd tools
 
+call git clone https://git.sr.ht/~lessa/absolute-unit
+pushd absolute-unit
+call build.bat || exit /b 1
+set PATH=%CD%\build;%PATH%
+popd
+
 git clone https://git.sr.ht/~lessa/copycat
 pushd copycat
 call build.bat || exit /b 1
-popd
-
-call git clone https://git.sr.ht/~lessa/absolute-unit
-pushd absolute-unit
-call bootstrap.bat || exit /b 1
-set PATH=%CD%\build;%PATH%
 popd
 
 call git clone https://git.sr.ht/~lessa/peppito
@@ -55,8 +55,9 @@ rem ===========================================================================
 
 mkdir tools-win
 
-copy /y tools\copycat\build\copycat.exe tools-win
 copy /y tools\absolute-unit\au.exe tools-win
+copy /y tools\absolute-unit\cosmoau tools-win
+copy /y tools\copycat\build\copycat.exe tools-win
 copy /y tools\peppito\build\peppito.exe tools-win
 rem copy /y tools\lsp\build\lsp.exe tools-win
 
