@@ -25,7 +25,6 @@ pushd tools
 call git clone https://git.sr.ht/~lessa/absolute-unit
 pushd absolute-unit
 call build.bat || exit /b 1
-set PATH=%CD%\build;%PATH%
 popd
 
 git clone https://git.sr.ht/~lessa/copycat
