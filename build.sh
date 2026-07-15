@@ -17,8 +17,7 @@ pushd tools
 git clone https://git.sr.ht/~lessa/absolute-unit
 pushd absolute-unit
 chmod a+x bootstrap.sh
-./bootstrap.sh || exit 1
-PATH=$PWD/build:$PATH
+./build.sh || exit 1
 popd
 
 git clone https://git.sr.ht/~lessa/peppito
