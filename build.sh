@@ -19,7 +19,7 @@ pushd peppito
 git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 git submodule update --init --recursive
 chmod a+x foundation/bootstrap.sh && foundation/bootstrap.sh || exit 1
-chmod a+x tcl && ./tcl build.tcl --release || exit 1
+chmod a+x tcl && ./tcl --release build.tcl || exit 1
 popd
 
 #git clone https://git.sr.ht/~lessa/lsp
