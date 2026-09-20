@@ -40,7 +40,7 @@ echo built all tools
 
 rem ===========================================================================
 
-rmdir /s /q tools-win
+rmdir /s /q tools-win 2>nul
 mkdir tools-win
 
 copy /y tools\copycat\build\copycat.exe tools-win
@@ -66,4 +66,4 @@ call (exit /b 0)
 
 rem ===========================================================================
 
-echo FINISHED! %errorlevel%
+echo FINISHED!
