@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-if not defined BUILD_DATE (set BUILD_DATE=latest)
+if not defined BUILD_DATE set BUILD_DATE=latest
 
 where /q git.exe || (
 	echo ERROR: "git.exe" not found
