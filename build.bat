@@ -8,14 +8,6 @@ where /q git.exe || (
 	exit /b 1
 )
 
-if not defined SZIP ( where /q 7z.exe && (set SZIP=7z.exe) )
-if not defined SZIP ( if exist "%ProgramFiles%\7-Zip\7z.exe" (set SZIP="%ProgramFiles%\7-Zip\7z.exe") )
-if not defined SZIP ( where /q 7za.exe && (set SZIP=7za.exe) )
-if not defined SZIP (
-	echo ERROR: 7-Zip installation or "7za.exe" not found
-	exit /b 1
-)
-
 rem ===========================================================================
 
 rmdir /s /q tools 2>nul
@@ -52,7 +44,7 @@ copy /y tools\copycat\build\copycat.exe tools-win
 copy /y tools\peppito\build\peppito.exe tools-win
 rem copy /y tools\lsp\build\lsp.exe tools-win
 
-%SZIP% a -y -mx=9 tools-win-%BUILD_DATE%.zip tools-win || exit /b 1
+tar.exe -cavf tools-win-%BUILD_DATE%.zip tools-win || exit /b 1
 
 rem ===========================================================================
 
