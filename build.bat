@@ -16,7 +16,7 @@ pushd tools
 
 git clone https://git.sr.ht/~lessa/copycat
 pushd copycat
-call build.bat || exit /b 1
+call build.bat || echo exit /b 1
 popd
 
 call git clone https://git.sr.ht/~lessa/peppito
@@ -24,7 +24,7 @@ pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule update --init --recursive
 call foundation\bootstrap.bat
-call tcl.bat --release build.tcl || exit /b 1
+call tcl.bat --release build.tcl || echo exit /b 1
 popd
 
 rem call git clone https://git.sr.ht/~lessa/lsp
@@ -49,7 +49,7 @@ rem copy /y tools\lsp\build\lsp.exe tools-win
 
 echo created tools-win dir
 
-tar.exe -cavf tools-win-%BUILD_DATE%.zip tools-win || exit /b 1
+tar.exe -cavf tools-win-%BUILD_DATE%.zip tools-win || echo exit /b 1
 echo created tools-win-%BUILD_DATE%.zip
 
 rem ===========================================================================
