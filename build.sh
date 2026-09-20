@@ -39,8 +39,8 @@ echo "built all tools"
 rm -rf tools-$OS
 mkdir tools-$OS
 
-cp tools/peppito/build/peppito tools-$OS
-#cp tools/lsp/build/lsp tools-$OS
+cp tools/peppito/build/peppito tools-$OS || exit 1
+#cp tools/lsp/build/lsp tools-$OS || exit 1
 
 echo "created tools-$OS dir"
 
