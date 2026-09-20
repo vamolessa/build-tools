@@ -32,6 +32,8 @@ popd
 
 popd
 
+echo "built all tools"
+
 # =============================================================================
 
 rm -rf tools-$OS
@@ -40,8 +42,11 @@ mkdir tools-$OS
 cp tools/peppito/build/peppito tools-$OS
 #cp tools/lsp/build/lsp tools-$OS
 
+echo "created tools-$OS dir"
+
 rm -f tools-$OS.zip
-zip -9 -r tools-$OS-$BUILD_DATE.zip tools-$OS || echo "could not zip artifacts"
+zip -9 -r tools-$OS-$BUILD_DATE.zip tools-$OS || exit 1
+echo "created tools-$OS-$BUILD_DATE.zip"
 
 # =============================================================================
 

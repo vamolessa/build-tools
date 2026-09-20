@@ -36,15 +36,21 @@ rem popd
 
 popd
 
+echo built all tools
+
 rem ===========================================================================
 
+rmdir /s /q tools-win
 mkdir tools-win
 
 copy /y tools\copycat\build\copycat.exe tools-win
 copy /y tools\peppito\build\peppito.exe tools-win
 rem copy /y tools\lsp\build\lsp.exe tools-win
 
+echo created tools-win dir
+
 tar.exe -cavf tools-win-%BUILD_DATE%.zip tools-win || exit /b 1
+echo created tools-win-%BUILD_DATE%.zip
 
 rem ===========================================================================
 
