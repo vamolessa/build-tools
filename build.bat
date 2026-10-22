@@ -23,7 +23,7 @@ call git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule update --init --recursive
-call tcl.bat --release build.tcl || exit /b 1
+call tcl.bat --release build.tcl
 popd
 
 rem call git clone https://git.sr.ht/~lessa/lsp
