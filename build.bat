@@ -23,20 +23,20 @@ call git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule update --init --recursive
-call foundation/bootstrap.bat
-rem call au.bat --release build.tcl
+rem call foundation/bootstrap.bat
+call au.bat --release build.tcl
 
 echo ===========================================================================
 
-foundation\build\au0 --help
+foundation\build\au --help
 
 echo ===========================================================================
 
-foundation\build\au0 --list build.tcl
+foundation\build\au --list build.tcl
 
 echo ===========================================================================
 
-foundation\build\au0 --release build.tcl
+rem foundation\build\au --release build.tcl
 
 echo ===========================================================================
 echo ===========================================================================
@@ -69,7 +69,7 @@ rmdir /s /q tools-win 2>nul
 mkdir tools-win
 
 copy /y tools\copycat\build\copycat.exe tools-win || exit /b 1
-copy /y tools\peppito\build\peppito.exe tools-win || echo exit /b 1
+copy /y tools\peppito\build\peppito.exe tools-win || exit /b 1
 rem copy /y tools\lsp\build\lsp.exe tools-win || exit /b 1
 
 echo created tools-win dir
