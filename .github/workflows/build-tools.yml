@@ -27,8 +27,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: bjia56/setup-cosmocc@v0.0.6
-
       - name: Run Build Script
         id: build
         shell: cmd
