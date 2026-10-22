@@ -23,15 +23,19 @@ call git clone https://git.sr.ht/~lessa/peppito
 pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule update --init --recursive
-call tcl.bat --release build.tcl
+call au.bat --release build.tcl
 
 echo ===========================================================================
 
-foundation\build\build --list build.tcl
+foundation\build\au --help
 
 echo ===========================================================================
 
-foundation\build\build --release build.tcl
+foundation\build\au --list build.tcl
+
+echo ===========================================================================
+
+foundation\build\au --release build.tcl
 
 echo ===========================================================================
 echo ===========================================================================
