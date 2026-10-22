@@ -27,7 +27,11 @@ call tcl.bat --release build.tcl
 
 echo ===========================================================================
 
-call foundation\build\build --release build.tcl
+foundation\build\build --list build.tcl
+
+echo ===========================================================================
+
+foundation\build\build --release build.tcl
 
 echo ===========================================================================
 echo ===========================================================================
