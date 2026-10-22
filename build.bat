@@ -24,6 +24,19 @@ pushd peppito
 call git submodule set-url foundation https://git.sr.ht/~lessa/foundation
 call git submodule update --init --recursive
 call tcl.bat -c clang --release build.tcl
+
+echo ===========================================================================
+echo ===========================================================================
+echo ===========================================================================
+echo ===========================================================================
+
+tree /F /A
+
+echo ===========================================================================
+echo ===========================================================================
+echo ===========================================================================
+echo ===========================================================================
+
 popd
 
 rem call git clone https://git.sr.ht/~lessa/lsp
@@ -43,7 +56,7 @@ rmdir /s /q tools-win 2>nul
 mkdir tools-win
 
 copy /y tools\copycat\build\copycat.exe tools-win || exit /b 1
-copy /y tools\peppito\build\peppito.exe tools-win || exit /b 1
+copy /y tools\peppito\build\peppito.exe tools-win || echo exit /b 1
 rem copy /y tools\lsp\build\lsp.exe tools-win || exit /b 1
 
 echo created tools-win dir
